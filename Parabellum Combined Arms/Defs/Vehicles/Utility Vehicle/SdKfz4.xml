@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <Vehicles.VehicleBuildDef ParentName="PaCA_BaseVehicleBuild"><!--Base Blueprint-->
+		<defName>PaCA_SdKfz4_Blueprint</defName>
+		<label>Sd.Kfz.4(Maultier)</label>
+		<description>Blueprint of Sd.Kfz.4.</description>
+		<graphicData>
+			<texPath>Vehicles/Utility Vehicles/SdKfz 4/SdKfz4H</texPath>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>	
+		<statBases> 		
+			<MaxHitPoints>95</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<size>(2,4)</size><!-- Vk 16.02 Leopard(3.1m w, 4.74m hl) vs Sd.Kfz 4(2.2m w, 6m hl)-->
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>	
+		<costList>
+			<Plasteel>600</Plasteel>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<Mechanism>6</Mechanism>
+			<Rubber>8</Rubber>
+		</costList>
+		<thingToSpawn>PaCA_SdKfz4_H</thingToSpawn>
+		<researchPrerequisites>
+			<li>Parabellum_Gamma</li>
+		</researchPrerequisites>
+	</Vehicles.VehicleBuildDef>
+
+	<!-- main -->
+	<Vehicles.VehicleDef ParentName="PaCA_BaseVehicle">
+		<defName>PaCA_SdKfz4_H</defName>
+		<label>Sd.Kfz.4(Maultier)</label>
+		<description>An armored Sd.Kfz 3 Maultier or the Panzerfwerfer 42 Hull, due the harsh Rasputitsa muddy road condition in the Eastern front and the lack of proper road for land vehicles, many trucks converted their wheels to tank track just counter such issue to drive on their logistic route, the downside is reduced mobility and slight carry capacity.</description>
+		<buildDef>PaCA_SdKfz4_Blueprint</buildDef>
+		<graphicData>
+			<texPath>Vehicles/Utility Vehicles/SdKfz 4/SdKfz4H</texPath>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<size>(2,4)</size>
+		<vehicleCategory>Transport</vehicleCategory>
+		<nameable>true</nameable>
+		<statBases>
+			<ArmorRating_Blunt>110</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<Flammability>0</Flammability>
+			<MarketValue>4600</MarketValue>
+		</statBases>
+		<vehicleStats>
+			<Mass>6200</Mass>
+			<MoveSpeed>12</MoveSpeed><!-- 45km/h or 28mph-->
+			<CargoCapacity>2200</CargoCapacity>
+			<RepairRate>0.75</RepairRate>
+		</vehicleStats>
+		<race>
+			<baseBodySize>2.4</baseBodySize>
+		</race>	
+		<properties>	<!-- slot/crew -->
+			<customRoadCosts AssignDefaults = "0.34"/>
+			<worldSpeedMultiplier>1.49</worldSpeedMultiplier>
+			<winterSpeedMultiplier>1.02</winterSpeedMultiplier>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 6)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>driver</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>				
+					<handlingTypes>
+						<li>Movement</li>
+					</handlingTypes>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+				</li>				
+				<li>
+					<key>passenger</key>
+					<label>passenger</label>
+					<slots>11</slots>
+				</li>
+			</roles>
+		</properties>	
+		<components> 
+		<!-- Internal mobile Part -->
+			<li><!--Engine -->
+				<key>Engine</key>
+				<label>6-cylinder Opel 3.6L engine</label>
+				<health>40</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<categories><li>MoveSpeed</li></categories>
+				<depth>Internal</depth>
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>2</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>			
+				<hitbox>
+					<cells>
+						<li>(0, 2)</li>
+					</cells>
+				</hitbox>				
+			</li>		
+			<li><!-- fuel tank -->
+				<key>FuelTank</key>
+				<label>fuel tank</label>
+				<health>25</health>
+				<depth>Internal</depth>			
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>5</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>			
+				<hitbox>
+					<cells>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- Gearbox -->
+				<key>Gearbox</key>
+				<label>gearbox</label>
+				<health>20</health>
+				<depth>Internal</depth>
+				<categories><li>MoveSpeed</li></categories>	
+				<hitbox><cells><li>(0, 1)</li></cells></hitbox>			
+			</li>
+			<li><!-- transmission shaft 40 -->
+				<key>TransmissionShaft</key>
+				<label>transmission shaft</label>
+				<health>20</health>
+				<depth>Internal</depth>
+			</li>			
+		<!-- External mobile Part -->		
+			<li><!-- LeftTrack -->
+				<key>LeftTrack</key>
+				<label>left track</label>
+				<health>65</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>
+				<tags><li>Wheel</li></tags>
+				<hitWeight>3</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(0, 0)</li>
+						<li>(0, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- RightTrack -->
+				<key>RightTrack</key>
+				<label>right track</label>
+				<health>65</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>	
+				<tags><li>Wheel</li></tags>
+				<hitWeight>3</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(1, 0)</li>
+						<li>(1, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- LeftRoadWheels -->
+				<key>LeftRoadWheels</key>
+				<label>left road wheels</label>
+				<health>50</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, 2)</li></cells>
+				</hitbox>
+			</li>
+			<li><!-- RightRoadWheels -->
+				<key>RightRoadWheels</key>
+				<label>right road wheels</label>
+				<health>50</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 2)</li></cells>
+				</hitbox>
+			</li>
+			<!-- German WWII tanks has Driver Sprocket in the front-->
+			<li><!-- LeftDriveSprocket -->
+				<key>LeftDriveSprocket</key>
+				<label>left drive sprocket</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, 0)</li></cells><!--upper left-->
+				</hitbox>
+			</li>
+			<li><!-- RightDriveSprocket-->
+				<key>RightDriveSprocket</key>
+				<label>right drive sprocket</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 0)</li></cells><!--upper right-->
+				</hitbox>
+			</li>
+			<!-- German WWII tanks has the wheel in the back -->
+			<li><!-- LeftTensionerWheel -->
+				<key>LeftTensionerWheel</key>
+				<label>left tensioner wheel</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(0, -1)</li></cells><!--lower left-->
+				</hitbox>
+			</li>
+			<li><!-- RightTensionerWheel -->
+				<key>RightTensionerWheel</key>
+				<label>right tensioner wheel</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>				
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, -1)</li></cells><!--lower right-->
+				</hitbox>
+			</li>
+			
+		<!-- External Platings -->
+			<li><!-- FrontArmorPlating -->
+				<key>FrontArmorPlating</key>
+				<label>front armor Plating</label>
+				<health>80</health>
+				<depth>External</depth>
+				<hitWeight>6</hitWeight>	
+				<armor>
+					<ArmorRating_Blunt>275</ArmorRating_Blunt>
+					<ArmorRating_Sharp>10</ArmorRating_Sharp>
+				</armor>		
+				<hitbox><side>Front</side></hitbox>
+			</li>
+			<li><!-- LeftArmorPlating -->
+				<key>LeftArmorPlating</key>
+				<label>left armor plating</label>
+				<health>80</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>		
+				<armor>
+					<ArmorRating_Blunt>275</ArmorRating_Blunt>
+					<ArmorRating_Sharp>10</ArmorRating_Sharp>
+				</armor>			
+				<hitbox><side>Left</side></hitbox>
+			</li>
+			<li><!-- RightArmorPlating -->
+				<key>RightArmorPlating</key>
+				<label>right armor plating</label>
+				<health>80</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>	
+				<armor>
+					<ArmorRating_Blunt>275</ArmorRating_Blunt>
+					<ArmorRating_Sharp>10</ArmorRating_Sharp>
+				</armor>			
+				<hitbox><side>Right</side></hitbox>
+			</li>
+			<li><!-- RoofArmorPlating  -->
+				<key>RoofArmorPlating</key>
+				<label>roof armor plating</label>
+				<health>60</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>2720</ArmorRating_Blunt>
+					<ArmorRating_Sharp>8</ArmorRating_Sharp>
+				</armor>
+			</li>
+			<li><!-- BackArmorPlating -->
+				<key>BackArmorPlating</key>
+				<label>rear armor plating</label>
+				<health>80</health>
+				<depth>External</depth>
+				<hitWeight>5</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>275</ArmorRating_Blunt>
+					<ArmorRating_Sharp>10</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<!-- Internal Parts -->
+			<li><!-- Interior -->
+				<key>Interior</key>
+				<label>interior</label>
+				<health>30</health>
+				<depth>Internal</depth>
+			</li>
+			<li><!-- Dashboard -->
+				<key>Dashboard</key>
+				<label>dashboard</label>
+				<health>30</health>
+				<depth>Internal</depth>
+			</li>
+			<li><!-- SteeringWheel -->
+				<key>SteeringWheel</key>
+				<label>steering wheel</label>
+				<health>20</health>
+				<depth>Internal</depth>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>8</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>0.45</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>100</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">	<!-- turret -->
+				<turrets>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+</Defs>

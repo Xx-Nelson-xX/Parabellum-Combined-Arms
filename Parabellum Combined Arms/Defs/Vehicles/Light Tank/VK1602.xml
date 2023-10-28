@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!--Base Blueprint-->
+  <Vehicles.VehicleBuildDef ParentName="PaCA_BaseVehicleBuild">
+		<defName>PaCA_VK1602LT_Blueprint</defName>
+		<label>VK 16.02 Leopard(50mm)</label>
+		<description>Blueprint of VK 16.02 Leopard.</description>
+		<graphicData>
+			<texPath>Vehicles/Light Tanks/VK1602/VK1602H</texPath>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>	
+		<statBases> 		
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>34000</WorkToBuild>
+			<Flammability>0.05</Flammability>
+		</statBases>
+		<size>(3,3)</size><!-- 4,7 for M1A2 Abraham MBT for reference (3.66m width,7.93m hull lenght) vs Vk 16.02 Leopard(3.1m w, 4.74m hl)-->
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>	
+		<costList>
+			<Plasteel>1200</Plasteel>
+			<Pa_MG34L>1</Pa_MG34L>
+			<Heavy_Component>1</Heavy_Component>
+			<Pa_SimpleCannon_Crate>2</Pa_SimpleCannon_Crate>
+			<Weapon_Parts>14</Weapon_Parts>
+			<ComponentIndustrial>26</ComponentIndustrial>
+			<Mechanism>20</Mechanism>
+		</costList>
+		<thingToSpawn>PaCA_VK1602LT_50mm</thingToSpawn>
+	</Vehicles.VehicleBuildDef>
+
+	<!-- main -->
+	<Vehicles.VehicleDef ParentName="PaCA_BaseVehicle">
+		<defName>PaCA_VK1602LT_50mm</defName>
+		<label>VK 16.02 Leopard(50mm)</label>
+		<description>A old world scout tank that never put on service due the stage of conflict, interest and competition of that time, armed with a versatile light cannon, very great mobility and decent armor for its role.</description>
+		<buildDef>PaCA_VK1602LT_Blueprint</buildDef>
+		<graphicData>
+			<texPath>Vehicles/Light Tanks/VK1602/VK1602H</texPath>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<size>(3,3)</size>
+		<vehicleCategory>Combat</vehicleCategory>
+		<statBases>
+			<ArmorRating_Blunt>110</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<Flammability>0</Flammability>
+			<MarketValue>8600</MarketValue>
+		</statBases>
+		<vehicleStats>
+			<Mass>21900</Mass>
+			<MoveSpeed>12</MoveSpeed><!-- 45km/h or 28mph-->
+			<CargoCapacity>200</CargoCapacity>
+			<RepairRate>0.5</RepairRate>
+		</vehicleStats>
+		<race>
+			<baseBodySize>2.7</baseBodySize>
+		</race>	
+		<properties>	<!-- slot/crew -->
+			<diagonalRotation>true</diagonalRotation>
+			<customRoadCosts AssignDefaults = "0.36"/>
+			<worldSpeedMultiplier>1.49</worldSpeedMultiplier>
+			<winterSpeedMultiplier>1.02</winterSpeedMultiplier>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 4)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>driver</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>				
+					<handlingTypes>
+						<li>Movement</li>
+					</handlingTypes>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+				</li>				
+				<li>
+					<key>gunner</key>
+					<label>gunner</label>
+					<slots>2</slots>
+					<slotsToOperate>1</slotsToOperate>		
+					<handlingTypes>Turret</handlingTypes>
+					<turretIds>
+						<li>mainTurret</li>
+						<li>topGL</li>
+						<li>coaxialMG</li>
+					</turretIds>
+					<hitbox>
+						<cells>
+							<li>(0, 0)</li>
+						</cells>
+					</hitbox>
+				</li>
+				<li>
+					<key>passenger</key>
+					<label>passenger</label>
+					<slots>1</slots>
+				</li>
+				<li>
+					<key>passengerOL</key>
+					<label>passengerL1(outside)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(-1, -1)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>0</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>1</layerEast>
+						<drawOffsetNorth>(0.5,0,-0.4)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.5,0,1.2)</drawOffsetSouth>
+						<drawOffsetEast>(-0.7,0,-0.1)</drawOffsetEast>
+						<drawOffsetWest>(0.7,0,0.65)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passengerOLa</key>
+					<label>passengerL2(outside)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(-1, -1)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>0</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>1</layerEast>
+						<drawOffsetNorth>(0.5,0,-1)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.5,0,1.8)</drawOffsetSouth>
+						<drawOffsetEast>(-1.3,0,-0.1)</drawOffsetEast>
+						<drawOffsetWest>(1.3,0,0.65)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passengerOR</key>
+					<label>passengerR1(outside)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(1, -1)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>0</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>1</layerEast>
+						<drawOffsetNorth>(-0.5,0,-0.4)</drawOffsetNorth>
+						<drawOffsetSouth>(0.5,0,1.2)</drawOffsetSouth>
+						<drawOffsetEast>(-0.7,0,0.7)</drawOffsetEast>
+						<drawOffsetWest>(0.7,0,-0.1)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passengerORa</key>
+					<label>passengerR2(outside)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(1, -1)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>0</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>1</layerEast>
+						<drawOffsetNorth>(-0.5,0,-1)</drawOffsetNorth>
+						<drawOffsetSouth>(0.5,0,1.8)</drawOffsetSouth>
+						<drawOffsetEast>(-1.3,0,0.7)</drawOffsetEast>
+						<drawOffsetWest>(1.3,0,-0.1)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+			</roles>
+		</properties>	
+		<components> 
+		<!-- Internal mobile Part -->
+			<li><!--Engine -->
+				<key>Engine</key>
+				<label>Maybach HL 157 P engine</label>
+				<health>80</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<categories><li>MoveSpeed</li></categories>
+				<depth>Internal</depth>
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>2</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>			
+				<hitbox>
+					<cells>
+						<li>(0, -1)</li>
+					</cells>
+				</hitbox>				
+			</li>		
+			<li><!-- fuel tank -->
+				<key>FuelTank</key>
+				<label>fuel tank</label>
+				<health>50</health>
+				<depth>Internal</depth>			
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.15</chance>
+						<radius>4</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>			
+				<hitbox>
+					<cells>
+						<li>(1, -1)</li>
+						<li>(-1, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- Gearbox -->
+				<key>Gearbox</key>
+				<label>gearbox</label>
+				<health>30</health>
+				<depth>Internal</depth>
+				<categories><li>MoveSpeed</li></categories>	
+				<hitbox><cells><li>(0, -1)</li></cells></hitbox>			
+			</li>
+			<li><!-- AmmoRack -->
+				<key>AmmoRack</key>
+				<label>ammo rack</label>
+				<health>50</health>
+				<depth>Internal</depth>
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.35</chance>
+						<radius>4</radius>
+						<damageDef>Bomb</damageDef>
+					</li>
+				</reactors>	
+				<hitbox>
+					<cells>
+						<li>(-1, 0)</li>
+						<li>(1, 0)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- transmission shaft 40 -->
+				<key>TransmissionShaft</key>
+				<label>transmission shaft</label>
+				<health>40</health>
+				<depth>Internal</depth>
+			</li>			
+		<!-- External mobile Part 外部驅動部件-->		
+			<li><!-- LeftTrack -->
+				<key>LeftTrack</key>
+				<label>left track</label>
+				<health>105</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>
+				<tags><li>Wheel</li></tags>
+				<hitWeight>3</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>550</ArmorRating_Blunt>
+					<ArmorRating_Sharp>20</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li><!-- RightTrack -->
+				<key>RightTrack</key>
+				<label>right track</label>
+				<health>105</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>	
+				<tags><li>Wheel</li></tags>
+				<hitWeight>3</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>550</ArmorRating_Blunt>
+					<ArmorRating_Sharp>20</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<li><!-- LeftRoadWheels -->
+				<key>LeftRoadWheels</key>
+				<label>left road wheels</label>
+				<health>95</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Left</side>
+				</hitbox>
+			</li>
+			<li><!-- RightRoadWheels -->
+				<key>RightRoadWheels</key>
+				<label>right road wheels</label>
+				<health>95</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<side>Right</side>
+				</hitbox>
+			</li>
+			<!-- German WWII tanks has Driver Sprocket in the front-->
+			<li><!-- LeftDriveSprocket -->
+				<key>LeftDriveSprocket</key>
+				<label>left drive sprocket</label>
+				<health>70</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(-1, 1)</li></cells><!--upper left-->
+				</hitbox>
+			</li>
+			<li><!-- RightDriveSprocket-->
+				<key>RightDriveSprocket</key>
+				<label>right drive sprocket</label>
+				<health>70</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, 1)</li></cells><!--upper right-->
+				</hitbox>
+			</li>
+			<!-- German WWII tanks has the wheel in the back -->
+			<li><!-- LeftTensionerWheel -->
+				<key>LeftTensionerWheel</key>
+				<label>left tensioner wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(-1, -1)</li></cells><!--lower left-->
+				</hitbox>
+			</li>
+			<li><!-- RightTensionerWheel -->
+				<key>RightTensionerWheel</key>
+				<label>right tensioner wheel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>				
+				<tags><li>Wheel</li></tags>				
+				<armor>
+					<ArmorRating_Blunt>412</ArmorRating_Blunt>
+					<ArmorRating_Sharp>15</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells><li>(1, -1)</li></cells><!--右後-->
+				</hitbox>
+			</li>
+			
+		<!-- External Platings 外部防禦部件 -->
+			<li><!-- FrontArmorPlating -->
+				<key>FrontArmorPlating</key>
+				<label>front armor Plating</label>
+				<health>300</health>
+				<depth>External</depth>
+				<hitWeight>8</hitWeight>	
+				<armor>
+					<ArmorRating_Blunt>2200</ArmorRating_Blunt>
+					<ArmorRating_Sharp>65.27</ArmorRating_Sharp>
+				</armor>		
+				<hitbox><side>Front</side></hitbox>
+			</li>
+			<li><!-- LeftArmorPlating -->
+				<key>LeftArmorPlating</key>
+				<label>left armor plating</label>
+				<health>200</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>		
+				<armor>
+					<ArmorRating_Blunt>918</ArmorRating_Blunt>
+					<ArmorRating_Sharp>33.38</ArmorRating_Sharp>
+				</armor>			
+				<hitbox><side>Left</side></hitbox>
+			</li>
+			<li><!-- RightArmorPlating -->
+				<key>RightArmorPlating</key>
+				<label>right armor plating</label>
+				<health>200</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>	
+				<armor>
+					<ArmorRating_Blunt>918</ArmorRating_Blunt>
+					<ArmorRating_Sharp>33.38</ArmorRating_Sharp>
+				</armor>			
+				<hitbox><side>Right</side></hitbox>
+			</li>
+			<!-- Skirt Plating -->
+			<!--<li>
+				<key>LeftSkirtPlating</key>
+				<label>left skirt plating</label>
+				<health>200</health>
+				<depth>External</depth>
+				<hitWeight>8</hitWeight>		
+				<armor>
+					<ArmorRating_Blunt>1233</ArmorRating_Blunt>
+					<ArmorRating_Sharp>44.83</ArmorRating_Sharp>
+				</armor>			
+				<hitbox><side>Left</side></hitbox>
+			</li>
+			<li>
+				<key>RightSkirtPlating</key>
+				<label>right skirt plating</label>
+				<health>200</health>
+				<depth>External</depth>
+				<hitWeight>8</hitWeight>	
+				<armor>
+					<ArmorRating_Blunt>1233</ArmorRating_Blunt>
+					<ArmorRating_Sharp>44.83</ArmorRating_Sharp>
+				</armor>			
+				<hitbox><side>Right</side></hitbox>
+			</li>-->
+			<li><!-- RoofArmorPlating  -->
+				<key>RoofArmorPlating</key>
+				<label>roof armor plating</label>
+				<health>100</health>
+				<depth>External</depth>
+				<hitWeight>5</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>550</ArmorRating_Blunt>
+					<ArmorRating_Sharp>20</ArmorRating_Sharp>
+				</armor>
+			</li>
+			<li><!-- BackArmorPlating -->
+				<key>BackArmorPlating</key>
+				<label>rear armor plating</label>
+				<health>160</health>
+				<depth>External</depth>
+				<hitWeight>5</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>995</ArmorRating_Blunt>
+					<ArmorRating_Sharp>36.17</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- 油箱與油耗 -->
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>15</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>0.6</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>220</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">	<!-- 砲塔 -->
+				<turrets>
+					<li>
+						<turretDef>PaCA_VK1602LT_50mmT</turretDef>					
+						<renderProperties>
+							<north>(0, 0)</north>
+							<south>(0, 0)</south>
+							<east>(0, 0)</east>
+							<west>(0, 0)</west>
+						</renderProperties>
+						<gizmoLabel>Main Turret</gizmoLabel>
+						<aimPieOffset>(0, 2)</aimPieOffset>	<!-- 預熱指示器的x,z偏移 -->
+						<drawLayer>1</drawLayer>						
+						<key>mainTurret</key>
+					</li>
+
+					<li>
+                        <turretDef>PaCA_TGL</turretDef>
+                        <renderProperties>
+                            <north>(0,0)</north>
+                            <south>(0,0)</south>
+                            <east>(0,0)</east>
+                            <west>(0,0)</west>
+                        </renderProperties>
+                        <gizmoLabel>Launcher</gizmoLabel>
+                        <angleRestricted>(300,60)</angleRestricted>
+                        <aimPieOffset>(0, 0)</aimPieOffset>
+                        <key>topGL</key>
+						<drawLayer>2</drawLayer>					
+                        <parentKey>mainTurret</parentKey>
+                    </li>
+				
+					<li>
+                        <turretDef>PaCA_CMG34T</turretDef>
+                        <renderProperties>
+                            <north>(0,0)</north>
+                            <south>(0,0)</south>
+                            <east>(0,0)</east>
+                            <west>(0,0)</west>
+                        </renderProperties>
+                        <gizmoLabel>barrel MG</gizmoLabel>
+                        <angleRestricted>(355,5)</angleRestricted>
+                        <aimPieOffset>(0, 0)</aimPieOffset>
+                        <key>coaxialMG</key>
+						<drawLayer>2</drawLayer>					
+                        <parentKey>mainTurret</parentKey>
+                    </li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+	<!-- Main gun Kwk39/1 5cm L60 -->
+	<Vehicles.VehicleTurretDef ParentName="PaCA_BaseTurret">
+		<defName>PaCA_VK1602LT_50mmT</defName>
+		<label>main turret</label>
+		<graphicData>
+			<texPath>Vehicles/Light Tanks/VK1602/VK1602T50</texPath>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<!--<chargePerAmmoCount>5</chargePerAmmoCount>-->
+		<genericAmmo>false</genericAmmo>
+		<rotationSpeed>1.95</rotationSpeed>
+		<ammunition>
+			<thingDefs>
+				<li>Ammo_50mmCannonShell_APHE</li>
+				<li>Ammo_50mmCannonShell_HE</li>
+				<li>Ammo_50mmCannonShell_APCR</li>
+			</thingDefs>
+		</ammunition>
+		<minRange>2</minRange>
+		<maxRange>125</maxRange>
+		<reloadTimer>3.5</reloadTimer>
+		<magazineCapacity>1</magazineCapacity>
+		<warmUpTimer>1.4</warmUpTimer>
+		<shotSound>Shot_50mm</shotSound>
+		<reloadSound>Artillery_ShellLoaded</reloadSound>
+		<!--<projectile>Bullet_50mmCannonShell_APHE</projectile>-->
+		<projectile>Bullet_50mmCannonShell_APHE</projectile>
+		<projectileOffset>3</projectileOffset>		<!-- 出膛前後偏移，主要是能讓子彈能從炮口飛出去 -->
+		<projectileShifting>							<!-- 出膛左右偏移，多砲管可以根據list來回切 -->
+		<!-- <li>-1</li> -->
+			<li>0</li>
+		</projectileShifting>
+		<recoil>
+			<distanceTotal>0.06</distanceTotal>
+			<distancePerTick>0.02</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>1</ticksBetweenBursts>
+				<spreadRadius>0.1</spreadRadius>
+				<label>Single Shot</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+		</fireModes>
+		<motes>
+			<li>
+				<cycles>1</cycles>
+				<moteDef>Mote_CannonPlume</moteDef>
+				<animationType>Reset</animationType>
+			</li>
+		</motes>
+		<modExtensions>
+			<li Class="Vehicles.CETurretDataDefModExtension">
+				<ammoSet>AmmoSet_50mmCannonShell</ammoSet>
+				<shotHeight>2.4</shotHeight>
+				<!--<speed>124</speed>-->
+				<sway>0.82</sway>
+				<spread>0.01</spread>
+			</li>
+		</modExtensions>
+	</Vehicles.VehicleTurretDef>
+</Defs>

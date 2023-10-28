@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+	<!-- =============== Sd.Kfz.251 =============== -->
+	<ArchitectSense.DesignationSubCategoryDef>
+		<defName>SubCategory_ParabellumCA251v</defName>
+		<label>Sd.Kfz.251 variants</label>
+		<description>"Hanomag" variants.</description>
+		<defNames>
+			<li>PaCA_SdKfz251_Blueprint</li>
+			<li>PaCA_SdKfz25116_Blueprint</li>
+		</defNames>
+		<designationCategory>VF_Vehicles</designationCategory>
+		<debug>false</debug>
+	</ArchitectSense.DesignationSubCategoryDef>
+	
+	<!-- =============== Sd.Kfz.4 =============== -->
+	<ArchitectSense.DesignationSubCategoryDef>
+		<defName>SubCategory_ParabellumCA4v</defName>
+		<label>Sd.Kfz.4 variants</label>
+		<description>Sd.Kfz.4 variants.</description>
+		<defNames>
+			<li>PaCA_SdKfz4_Blueprint</li>
+		</defNames>
+		<designationCategory>VF_Vehicles</designationCategory>
+		<debug>false</debug>
+	</ArchitectSense.DesignationSubCategoryDef>
+	
+	<!-- =============== Normal/Utility Vehicles =============== -->
+	<ArchitectSense.DesignationSubCategoryDef>
+		<defName>SubCategory_ParabellumCANV</defName>
+		<label>Utility Vehicles</label>
+		<description>Usually military convertion of civillian car, or viceversa.</description>
+		<defNames>
+			<li>PaCA_ZKS750_Blueprint</li>
+		</defNames>
+		<designationCategory>VF_Vehicles</designationCategory>
+		<debug>false</debug>
+	</ArchitectSense.DesignationSubCategoryDef>
+	
+	<!-- =============== Light Tanks =============== -->
+	<ArchitectSense.DesignationSubCategoryDef>
+		<defName>SubCategory_ParabellumCAA</defName>
+		<label>Light Tanks</label>
+		<description>Light tanks and their variant, usually use no larger than medium cannon and autocannons as main armament.</description>
+		<defNames>
+			<li>PaCA_VK1602LT_Blueprint</li>
+		</defNames>
+		<designationCategory>VF_Vehicles</designationCategory>
+		<debug>false</debug>
+	</ArchitectSense.DesignationSubCategoryDef>
+	
+</Defs>

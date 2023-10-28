@@ -1,0 +1,93 @@
+<--------------------------------------- 1.0(initial stage) -------------------------------------------->
+
+	>Due no support for raider vehicles yet, so the initial stage will be mostly experimenting VF and utility vehicles with little to none offensive capability
+
+
+1.0 - Initial stage: 4 New vehicles and 1 hidden
+
+Zundapp KS 750 w sidecar:
+
+	Specification:	 Motorcycle(w sidecar) / Size - 1x2 / Mass - 420kg 
+
+	Armament:		 MG34(100rnd) - 7.92x57mm Mauser, Automatic(1/6/15)
+	
+	Mobility:		 25c/s - 95km/h or 50mph IRL
+	
+	Carry Capacity:	 160kg
+	
+	Crew:			 (3) 1 driver, 1 sidecar gunner and 1 passenger
+	
+	Fuel:			 12 L total / 3 L per day consumption
+	
+	
+Sd.Kfz.4(Maultier):
+
+	Specification:	 Half-tracked Truck / Size - 2x4 / Mass - 6200kg 
+
+	Armament:		 None
+	
+	Mobility:		 12c/s - 45km/h or 28mph IRL
+	
+	Carry Capacity:	 2200kg
+	
+	Crew:			 (12) 1 driver and 11 passenger
+	
+	Fuel:			 100 L total / 8 L per day consumption
+	
+	Armor:			 10 / 10 / 10
+	
+	
+Sd.Kfz.251(Hanomags):
+
+	Specification:	 Armored Infantry Carrier / Size - 2x4 / Mass - 7200kg 
+
+	Armament:		 MG42 100rnd x2(Front and Rear)
+	
+	Mobility:		 14c/s - 52.5km/h or 32.6mph IRL
+	
+	Carry Capacity:	 800kg
+	
+	Crew:			 (10) 1 driver, 2 gunner and 7 passenger
+	
+	Fuel:			 120 L total / 10 L per day consumption
+	
+	Armor:			 13 / 13 / 13
+	
+	
+Sd.Kfz.251/16(Flammpanzerwagen):
+
+	Specification:	 Assault Carrier / Size - 2x4 / Mass - 7810kg 
+
+	Armament:		 MG42 x2(100rnd 8mm Mauser Rifle Catridge - 1200rpm/automatic 1/8/18 - Front and Rear) + 2 Flammenwerfer(both side)
+	
+	Mobility:		 14c/s - 52.5km/h or 32.6mph IRL
+	
+	Carry Capacity:	 800kg
+	
+	Crew:			 (8) 1 driver, 4 gunner and 3 passenger
+	
+	Fuel:			 180 L total / 14 L per day consumption
+	
+	Armor:			 13 / 13 / 13
+	
+	
+	
+<----- Hidden(Not available for public) ----->
+
+VK 16.02(Leopard-50mm):
+
+	Specification:	 Light Tank / Size - 3x3 / Mass - 21900kg 
+
+	Armament:		 5cm PaK 39/1 L60(50mm - single shot - 360º turn) + Tank Launcher(6 charge) + MG34 Coaxial(250rnd 8mm Mauser Rifle Catridge - 900rpm/automatic 1/6/15 - fixed to the turret front)
+	
+	Mobility:		 12c/s - 45km/h or 28mph IRL
+	
+	Carry Capacity:	 200kg
+	
+	Crew:			 (8) 1 driver, 2 gunner, 1 passenger(inside) and 2 passenger(outside)
+	
+	Fuel:			 180 L total / 14 L per day consumption
+	
+	Armor:			 65.27(50mm angled) / 33.38(30mm angled)	/ 36.17(30mm angled)
+
+	

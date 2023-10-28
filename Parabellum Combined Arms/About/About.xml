@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Parabellum Combined Arms</name>
+	<author>XxNelsonxX</author>
+	<packageId>XxNelsonxX.ParabellumCA</packageId>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<description>
+
+		Si vis pacem, para bellum - If you want peace, prepare for war
+
++New Research and small compatibility patch with "Vile's Pre-Industrial" and "HSK More Content" mod
+
+The mod adds weapon, ammo, explosives, turrets, and the new update add more of them, including new balance, new research, new patches for HSK More Content and Vile's Mod(Pre-Industrial to be exact)
+
+Stuff to add combat variety and now included a chronological like progression research like how Vile did for Pre-Industrial, the mod focus on stuffs after Pre-Industrial  mostly, for now
+
+Any issue report it to me or pin me in Discord Server or in my mod Thread, I pass most of my time in the English server, any suggestion, feedback and bug report is always welcome!(I really need those), thanks for using my mod
+
+Sorry that I don't speak russian, also I am not a native English speaker, but I do speak English, Spanish and Chinese, so you are free to correct any typo I made and anyone is free to translate my mod to any other language if you want.
+
+Moved the changelog to separated text file
+
+
+[RUS - переводчик]
+
+		  Теперь поддержка русского перевода благодаря г-ну Винни Пух 
+
+		Si vis pacem, para bellum - Если хочешь мира, готовься к войне
+		
+
++ Новое исследование и небольшой патч совместимости с модами "Vile's Pre-Industrial" и "HSK More Content"
+
+Основной целью этого мода было добавить больше оружия для базового HSK, на данный момент
+
+Мод добавляет оружие, боеприпасы, взрывчатку, турели, а новое обновление добавляет их больше, включая новый баланс, новые исследования, новые патчи для HSK More Content и Vile's Mod (точнее доиндустриальный)
+
+Материал для добавления разнообразия боя и теперь включает в себя хронологическое исследование прогресса.
+
+О любой проблеме сообщите мне или закрепите меня на сервере Discord или в моей ветке мода, я провожу большую часть своего времени на английском сервере, любые предложения, отзывы и отчеты об ошибках всегда приветствуются! (Мне они действительно нужны), спасибо за использование моего мода
+
+
+Извините, мне трудно переводить журнал изменений, но я постараюсь предоставить его.
+
+	</description>
+	<modDependencies>
+		<li>
+			<packageId>SmashPhil.VehicleFramework</packageId>
+			<displayName>Vehicle Framework</displayName>
+			<downloadUrl>https://github.com/SmashPhil/Vehicles/releases/latest</downloadUrl>
+			<steamWorkshopUrl/>
+		</li>
+		<li>
+			<packageId>skyarkhangel.HSK</packageId>
+			<displayName>Hardcore SK</displayName>
+			<downloadUrl>https://github.com/skyarkhangel/Hardcore-SK</downloadUrl>
+		</li>
+		<li>
+			<packageId>XxNelsonxX.Parabellum</packageId>
+			<displayName>Parabellum</displayName>
+			<downloadUrl>https://github.com/Xx-Nelson-xX/Parabellum</downloadUrl>
+		</li>
+	</modDependencies>
+		<loadBefore>
+			<li>experimental.optimizations</li>
+			<li>notooshabby.rocketman</li>
+			<li>XxNelsonxX.NsLP</li>
+		</loadBefore>
+		<loadAfter>
+			<li>brrainz.harmony</li>
+			<li>Ludeon.RimWorld</li>
+			<li>Ludeon.RimWorld.Royalty</li>
+			<li>Ludeon.RimWorld.Ideology</li>
+			<li>UnlimitedHugs.HugsLib</li>
+			<li>CETeam.CombatExtended</li>
+			<li>RWNodeTree.RWNodeTree</li>
+			<li>RWNodeTree.RWWeaponModularization</li>
+			<li>RWNodeTree.ModularizationVanillaWeapon</li>
+			<li>skyarkhangel.HSK</li>
+			<li>multilangcolorfultraits.pirateby</li>
+			<li>ArpoMo6.HMC.Project</li>
+			<li>ViTech.MedievalOverhaul</li>
+			<li>XxNelsonxX.Parabellum</li>
+			<li>XxNelsonxX.ParabellumWT</li>
+		</loadAfter>
+		<incompatibleWith>
+			<li>XxNelsonxX.ParabellumEiB</li>
+			<li>XxNelsonxX.ParabellumHtL</li>
+		</incompatibleWith>
+	</ModMetaData>

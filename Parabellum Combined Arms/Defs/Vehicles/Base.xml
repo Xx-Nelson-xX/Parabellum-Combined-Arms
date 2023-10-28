@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+	<Vehicles.VehicleBuildDef Name="PaCA_BaseVehicleBuild" ParentName="VehicleBaseBuildable" Abstract="True">
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+		</graphicData>
+		<designationCategory>VF_Vehicles</designationCategory>	
+		<researchPrerequisites>
+			<li>Machining</li>
+		</researchPrerequisites>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>	
+	</Vehicles.VehicleBuildDef>
+
+	<Vehicles.VehicleDef Name="PaCA_BaseVehicle" ParentName="BaseVehiclePawn" Abstract="True">
+		<graphicData>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<color>(155, 155, 155)</color>
+			<colorTwo>(65, 75, 80)</colorTwo>
+			<colorThree>(45, 50, 45)</colorThree>
+		</graphicData>
+		<fillPercent>1</fillPercent>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<nameable>false</nameable>
+		<soundOneShotsOnEvent Inherit = "False">
+			<li>
+				<key>PawnEntered</key>
+				<value>VVE_VehicleEnter</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>VVE_VehicleEnter</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>VVE_VehicleStart</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>VVE_VehicleStart</value>
+			</li>
+		</soundOneShotsOnEvent>
+		<soundSustainersOnEvent>
+			<li>
+				<key>(IgnitionOn, IgnitionOff)</key>
+				<value>VVE_VehicleEngineHeavy</value>
+			</li>
+		</soundSustainersOnEvent>
+		<statBases>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+		</statBases>
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+		</properties>
+	</Vehicles.VehicleDef>
+
+	<Vehicles.VehicleTurretDef Name="PaCA_BaseTurret" ParentName="VehicleTurretBase" Abstract="True">
+		<turretType>Rotatable</turretType>
+		<graphicData>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+		</graphicData>	
+		<hitFlags>IntendedTarget</hitFlags>		
+		<autoSnapTargeting>true</autoSnapTargeting>	
+		<!-- <attachProjectileFlag>VVE_Tank</attachProjectileFlag> 不知道幹啥的，先註解掉 -->
+	</Vehicles.VehicleTurretDef>
+	
+	<!-- coaxial MG34 -->
+	<Vehicles.VehicleTurretDef ParentName="PaCA_BaseTurret">
+		<defName>PaCA_CMG34T</defName>
+		<label>Coaxial MG34</label>
+		<graphicData>
+			<texPath>Vehicles/VFPH</texPath>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<genericAmmo>false</genericAmmo>
+		<rotationSpeed>1.95</rotationSpeed>
+		<ammunition>
+			<thingDefs>
+				<li>Ammo_8mmM_P88M</li>
+				<li>Ammo_8mmM_SP</li>
+				<li>Ammo_8mmM_KP</li>
+				<li>Ammo_8mmM_BP</li>
+			</thingDefs>
+		</ammunition>
+		<maxRange>56</maxRange>
+		<reloadTimer>6.7</reloadTimer>
+		<magazineCapacity>250</magazineCapacity>
+		<warmUpTimer>1.4</warmUpTimer>
+		<shotSound>Shot_MG34s</shotSound>
+		<reloadSound>Interact_Rifle</reloadSound>
+		<!--<projectile>Bullet_8mmM_SP</projectile>-->
+		<projectile>Bullet_8mmM_SP</projectile>
+		<projectileOffset>-1.2</projectileOffset>
+		<projectileShifting>
+			<li>0</li>
+		</projectileShifting>
+		<recoil>
+			<distanceTotal>0.01</distanceTotal>
+			<distancePerTick>0.002</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>4</ticksBetweenBursts>
+				<spreadRadius>0.15</spreadRadius>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>4</ticksBetweenBursts>
+				<spreadRadius>0.65</spreadRadius>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>15</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>4</ticksBetweenBursts>
+				<spreadRadius>1.2</spreadRadius>
+				<label>Auto</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<modExtensions>
+			<li Class="Vehicles.CETurretDataDefModExtension">
+				<ammoSet>AmmoSet_8mmM</ammoSet>
+				<shotHeight>2.4</shotHeight>
+				<sway>0.4</sway>
+				<!--<speed>181</speed>
+				<spread>0.05</spread>-->
+			</li>
+		</modExtensions>
+	</Vehicles.VehicleTurretDef>
+	
+	<!-- Mounted MG34 -->
+	<Vehicles.VehicleTurretDef ParentName="PaCA_BaseTurret">
+		<defName>PaCA_CMG34V</defName>
+		<label>MG34</label>
+		<graphicData>
+			<texPath>Vehicles/MG34V</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+		</graphicData>
+		<genericAmmo>false</genericAmmo>
+		<rotationSpeed>3</rotationSpeed>
+		<ammunition>
+			<thingDefs>
+				<li>Ammo_8mmM_P88M</li>
+				<li>Ammo_8mmM_SP</li>
+				<li>Ammo_8mmM_KP</li>
+				<li>Ammo_8mmM_BP</li>
+			</thingDefs>
+		</ammunition>
+		<maxRange>56</maxRange>
+		<reloadTimer>4.6</reloadTimer>
+		<magazineCapacity>100</magazineCapacity>
+		<warmUpTimer>1.34</warmUpTimer>
+		<shotSound>Shot_MG34s</shotSound>
+		<reloadSound>Interact_Rifle</reloadSound>
+		<!--<projectile>Bullet_8mmM_SP</projectile>-->
+		<projectile>Bullet_8mmM_SP</projectile>
+		<projectileOffset>-1.2</projectileOffset>
+		<projectileShifting>
+			<li>0</li>
+		</projectileShifting>
+		<recoil>
+			<distanceTotal>0.01</distanceTotal>
+			<distancePerTick>0.002</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>4</ticksBetweenBursts>
+				<spreadRadius>0.15</spreadRadius>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>4</ticksBetweenBursts>
+				<spreadRadius>0.65</spreadRadius>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>15</shotsPerBurst>
+				<ticksBetweenShots>4</ticksBetweenShots>
+				<ticksBetweenBursts>4</ticksBetweenBursts>
+				<spreadRadius>1.2</spreadRadius>
+				<label>Auto</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<modExtensions>
+			<li Class="Vehicles.CETurretDataDefModExtension">
+				<ammoSet>AmmoSet_8mmM</ammoSet>
+				<shotHeight>2.4</shotHeight>
+				<sway>0.4</sway>
+				<!--<speed>181</speed>
+				<spread>0.05</spread>-->
+			</li>
+		</modExtensions>
+	</Vehicles.VehicleTurretDef>
+	
+	<!-- Vehicle MG42 -->
+	<Vehicles.VehicleTurretDef ParentName="PaCA_BaseTurret">
+		<defName>PaCA_MG42T</defName>
+		<label>MG42 turret</label>
+		<graphicData>
+			<texPath>Vehicles/TopMG42</texPath>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<!--<chargePerAmmoCount>5</chargePerAmmoCount>-->
+		<genericAmmo>false</genericAmmo>
+		<rotationSpeed>2.4</rotationSpeed>
+		<ammunition>
+			<thingDefs>
+				<li>Ammo_8mmM_P88M</li>
+				<li>Ammo_8mmM_SP</li>
+				<li>Ammo_8mmM_KP</li>
+				<li>Ammo_8mmM_BP</li>
+			</thingDefs>
+		</ammunition>
+		<maxRange>56</maxRange>
+		<reloadTimer>4.6</reloadTimer>
+		<magazineCapacity>100</magazineCapacity>
+		<warmUpTimer>1.2</warmUpTimer>
+		<shotSound>Shot_MG42s</shotSound>
+		<reloadSound>Interact_Rifle</reloadSound>
+		<!--<projectile>Bullet_8mmM_SP</projectile>-->
+		<projectile>Bullet_8mmM_SP</projectile>
+		<projectileOffset>-1.2</projectileOffset>
+		<projectileShifting>
+			<li>0</li>
+		</projectileShifting>
+		<recoil>
+			<distanceTotal>0.008</distanceTotal>
+			<distancePerTick>0.001</distancePerTick>
+			<speedMultiplierPostRecoil>0.08</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>3</ticksBetweenBursts>
+				<spreadRadius>0.1</spreadRadius>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>8</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>3</ticksBetweenBursts>
+				<spreadRadius>0.55</spreadRadius>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>18</shotsPerBurst>
+				<ticksBetweenShots>3</ticksBetweenShots>
+				<ticksBetweenBursts>3</ticksBetweenBursts>
+				<spreadRadius>1.1</spreadRadius>
+				<label>Auto</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<modExtensions>
+			<li Class="Vehicles.CETurretDataDefModExtension">
+				<ammoSet>AmmoSet_8mmM</ammoSet>
+				<shotHeight>2.4</shotHeight>
+				<sway>0.4</sway>
+				<!--<speed>181</speed>
+				<spread>0.05</spread>-->
+			</li>
+		</modExtensions>
+	</Vehicles.VehicleTurretDef>
+	
+	<!-- Launcher -->
+	<Vehicles.VehicleTurretDef ParentName="PaCA_BaseTurret">
+		<defName>PaCA_TGL</defName>
+		<label>Tank Launcher</label>
+		<graphicData>
+			<texPath>Vehicles/VFPH</texPath>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<genericAmmo>false</genericAmmo>
+		<autoSnapTargeting>false</autoSnapTargeting>
+		<rotationSpeed>2.5</rotationSpeed>
+		<ammunition>
+			<thingDefs>
+				<li>Pa_Smine</li>
+				<li>Pa_GrenadeN24Nb</li>
+			</thingDefs>
+		</ammunition>
+		<minRange>1</minRange>
+		<maxRange>10</maxRange>
+		<reloadTimer>5.6</reloadTimer>
+		<magazineCapacity>6</magazineCapacity>
+		<warmUpTimer>1.2</warmUpTimer>
+		<shotSound>Shot_IncendiaryLauncher</shotSound>
+		<reloadSound>Interact_Shotgun</reloadSound>
+		<projectile>Bullet_Smine</projectile>
+		<projectileOffset>0.2</projectileOffset>
+		<projectileShifting>
+			<li>0</li>
+		</projectileShifting>
+		<recoil>
+			<distanceTotal>0.01</distanceTotal>
+			<distancePerTick>0.002</distancePerTick>
+			<speedMultiplierPostRecoil>0.1</speedMultiplierPostRecoil>
+		</recoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenShots>12</ticksBetweenShots>
+				<ticksBetweenBursts>12</ticksBetweenBursts>
+				<spreadRadius>0.1</spreadRadius>
+				<label>Single</label>
+				<texPath>UI/Gizmos/FireRate_Single</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>3</shotsPerBurst>
+				<ticksBetweenShots>12</ticksBetweenShots>
+				<ticksBetweenBursts>12</ticksBetweenBursts>
+				<spreadRadius>0.7</spreadRadius>
+				<label>Burst</label>
+				<texPath>UI/Gizmos/FireRate_Burst</texPath>
+			</li>
+			<li>
+				<shotsPerBurst>6</shotsPerBurst>
+				<ticksBetweenShots>12</ticksBetweenShots>
+				<ticksBetweenBursts>12</ticksBetweenBursts>
+				<spreadRadius>1.6</spreadRadius>
+				<label>Auto</label>
+				<texPath>UI/Gizmos/FireRate_Auto</texPath>
+			</li>
+		</fireModes>
+		<modExtensions>
+			<li Class="Vehicles.CETurretDataDefModExtension">
+				<ammoSet>AmmoSet_NbWft</ammoSet>
+				<shotHeight>2.4</shotHeight>
+				<sway>0.4</sway>
+				<!--<speed>181</speed>
+				<spread>0.05</spread>-->
+			</li>
+		</modExtensions>
+	</Vehicles.VehicleTurretDef>
+</Defs>

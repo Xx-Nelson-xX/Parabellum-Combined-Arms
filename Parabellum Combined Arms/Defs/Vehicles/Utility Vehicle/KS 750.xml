@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <Vehicles.VehicleBuildDef ParentName="PaCA_BaseVehicleBuild"><!--Base Blueprint-->
+		<defName>PaCA_ZKS750_Blueprint</defName>
+		<label>Zündapp KS 750</label>
+		<description>Blueprint of Sd.Kfz.4.</description>
+		<graphicData>
+			<texPath>Vehicles/Utility Vehicles/KS750/KS750</texPath>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>	
+		<statBases> 		
+			<MaxHitPoints>95</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<size>(1,2)</size><!-- Vk 16.02 Leopard(3.1m w, 4.74m hl) vs KS750(0.75m w, 2m hl)-->
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<costList>
+			<Plasteel>200</Plasteel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<Mechanism>4</Mechanism>
+			<Rubber>12</Rubber>
+		</costList>
+		<thingToSpawn>PaCA_ZKS750_H</thingToSpawn>
+		<researchPrerequisites>
+			<li>Parabellum_Gamma</li>
+		</researchPrerequisites>
+	</Vehicles.VehicleBuildDef>
+
+	<!-- main -->
+	<Vehicles.VehicleDef ParentName="PaCA_BaseVehicle">
+		<defName>PaCA_ZKS750_H</defName>
+		<label>Zündapp KS 750</label>
+		<description>An old world military motorcycle with sidecar, scout and communication unit favorite, very fast, reliable, and very fuel efficient.</description>
+		<buildDef>PaCA_ZKS750_Blueprint</buildDef>
+		<graphicData>
+			<texPath>Vehicles/Utility Vehicles/KS750/KS750</texPath>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<size>(1,2)</size>
+		<fillPercent>0.65</fillPercent>
+		<vehicleCategory>Transport</vehicleCategory>
+		<statBases>
+			<ArmorRating_Blunt>110</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<Flammability>0.2</Flammability>
+			<MarketValue>2200</MarketValue>
+		</statBases>
+		<vehicleStats>
+			<Mass>420</Mass>
+			<MoveSpeed>25</MoveSpeed><!-- 95km/h or 50mph-->
+			<CargoCapacity>160</CargoCapacity>
+			<RepairRate>1.05</RepairRate>
+		</vehicleStats>
+		<race>
+			<baseBodySize>1.1</baseBodySize>
+		</race>	
+		<properties>	<!-- slot/crew -->
+			<customRoadCosts AssignDefaults = "0.2"/>
+			<manhunterTargetsVehicle>true</manhunterTargetsVehicle>
+			<worldSpeedMultiplier>2.7</worldSpeedMultiplier>
+			<winterSpeedMultiplier>1.2</winterSpeedMultiplier>
+			<offRoadMultiplier>0.85</offRoadMultiplier>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 3)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>driver</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>				
+					<handlingTypes>
+						<li>Movement</li>
+					</handlingTypes>
+					<exposed>true</exposed>
+					<hitbox>
+						<side>Body</side>
+					</hitbox>
+					<pawnRenderer>
+						<layer>1</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>2</layerSouth>
+						<drawOffsetNorth>(-0.4,0,0.62)</drawOffsetNorth>
+						<drawOffsetSouth>(0.42,0,0.84)</drawOffsetSouth>
+						<drawOffsetEast>(0,0,0.86)</drawOffsetEast>
+						<drawOffsetWest>(0,0,0.26)</drawOffsetWest>
+					</pawnRenderer>
+				</li>			
+				<li>
+					<key>passengerRear</key>
+					<label>passenger(R)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<side>Back</side>
+					</hitbox>
+					<pawnRenderer>
+						<layer>2</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>0</layerSouth>
+						<drawOffsetNorth>(-0.4,0,0.46)</drawOffsetNorth>
+						<drawOffsetSouth>(0.42,0,1.16)</drawOffsetSouth>
+						<drawOffsetEast>(-0.46,0,0.9)</drawOffsetEast>
+						<drawOffsetWest>(0.5,0,0.3)</drawOffsetWest>
+					</pawnRenderer>
+					
+				</li>
+				<li>
+					<key>gunner</key>
+					<label>sidecar gunner</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<handlingTypes>Turret</handlingTypes>
+					<turretIds>
+						<li>mainTurret</li>
+					</turretIds>
+					<exposed>true</exposed>
+					<hitbox>
+						<side>Right</side>
+					</hitbox>
+					<pawnRenderer>
+						<layer>0</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>1</layerEast>
+						<drawOffsetNorth>(0.32,0,0.63)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.28,0,0.77)</drawOffsetSouth>
+						<drawOffsetEast>(-0.15,0,0.17)</drawOffsetEast>
+						<drawOffsetWest>(0.26,0,0.64)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+			</roles>
+		</properties>	
+		<components> 
+		<!-- Parts -->
+			<li>
+				<key>FrontWheel</key>
+				<label>Front Wheel</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>4</ArmorRating_Blunt>
+					<ArmorRating_Sharp>50</ArmorRating_Sharp>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>BackWheel</key>
+				<label>Back Wheel</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Blunt>4</ArmorRating_Blunt>
+					<ArmorRating_Sharp>50</ArmorRating_Sharp>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>FrontSuspension</key>
+				<label>Front Suspension</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>2</hitWeight>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>BackSuspension</key>
+				<label>Back Suspension</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>2</hitWeight>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>Engine</key>
+				<label>751cc four-stroke flat-twin petrol engine</label>
+				<health>20</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>External</depth>
+				<hitWeight>3</hitWeight>
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.85</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<side>Body</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li><!-- fuel tank -->
+				<key>FuelTank</key>
+				<label>fuel tank</label>
+				<health>15</health>
+				<depth>Internal</depth>			
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>2</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>			
+				<hitbox>
+					<side>Body</side>
+				</hitbox>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>3</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>0.2</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>12</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">	<!-- turret -->
+				<turrets>
+					<li>
+						<turretDef>PaCA_CMG34V</turretDef>					
+						<renderProperties>
+							<north>(0.33, 0.62)</north>
+							<south>(-0.3, -0.1)</south>
+							<east>(0.5, -0.15)</east>
+							<west>(-0.4, 0.35)</west>
+						</renderProperties>
+						<gizmoLabel>Main Turret</gizmoLabel>
+						<angleRestricted>(285,90)</angleRestricted>
+						<aimPieOffset>(0, -0.4)</aimPieOffset>	<!-- coldown/warmup cone -->
+						<drawLayer>1</drawLayer>					
+						<key>mainTurret</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+</Defs>
