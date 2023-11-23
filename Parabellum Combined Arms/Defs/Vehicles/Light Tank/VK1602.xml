@@ -2,7 +2,7 @@
 <Defs>
 
   <!--Base Blueprint-->
-  <Vehicles.VehicleBuildDef ParentName="PaCA_BaseVehicleBuild">
+  <!-- <Vehicles.VehicleBuildDef ParentName="PaCA_BaseVehicleBuild">
 		<defName>PaCA_VK1602LT_Blueprint</defName>
 		<label>VK 16.02 Leopard(50mm)</label>
 		<description>Blueprint of VK 16.02 Leopard.</description>
@@ -15,8 +15,8 @@
 			<WorkToBuild>34000</WorkToBuild>
 			<Flammability>0.05</Flammability>
 		</statBases>
-		<size>(3,3)</size><!-- 4,7 for M1A2 Abraham MBT for reference (3.66m width,7.93m hull lenght) vs Vk 16.02 Leopard(3.1m w, 4.74m hl)-->
-		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>	
+		<size>(3,3)</size>--><!-- 4,7 for M1A2 Abraham MBT for reference (3.66m width,7.93m hull lenght) vs Vk 16.02 Leopard(3.1m w, 4.74m hl)-->
+		<!-- <constructionSkillPrerequisite>12</constructionSkillPrerequisite>	
 		<costList>
 			<Plasteel>1200</Plasteel>
 			<Pa_MG34L>1</Pa_MG34L>
@@ -27,14 +27,14 @@
 			<Mechanism>20</Mechanism>
 		</costList>
 		<thingToSpawn>PaCA_VK1602LT_50mm</thingToSpawn>
-	</Vehicles.VehicleBuildDef>
+	</Vehicles.VehicleBuildDef>-->
 
 	<!-- main -->
 	<Vehicles.VehicleDef ParentName="PaCA_BaseVehicle">
 		<defName>PaCA_VK1602LT_50mm</defName>
 		<label>VK 16.02 Leopard(50mm)</label>
 		<description>A old world scout tank that never put on service due the stage of conflict, interest and competition of that time, armed with a versatile light cannon, very great mobility and decent armor for its role.</description>
-		<buildDef>PaCA_VK1602LT_Blueprint</buildDef>
+		<!-- <buildDef>PaCA_VK1602LT_Blueprint</buildDef>-->
 		<graphicData>
 			<texPath>Vehicles/Light Tanks/VK1602/VK1602H</texPath>
 			<drawSize>(4,4)</drawSize>
@@ -57,10 +57,9 @@
 			<baseBodySize>2.7</baseBodySize>
 		</race>	
 		<properties>	<!-- slot/crew -->
-			<diagonalRotation>true</diagonalRotation>
 			<customRoadCosts AssignDefaults = "0.36"/>
 			<worldSpeedMultiplier>1.49</worldSpeedMultiplier>
-			<winterSpeedMultiplier>1.02</winterSpeedMultiplier>
+			<winterSpeedMultiplier>0.98</winterSpeedMultiplier>
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 4)</li>
 			</vehicleJobLimitations>
@@ -491,7 +490,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- 油箱與油耗 -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>15</fuelConsumptionRate>
+				<fuelConsumptionRate>360</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.6</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>220</fuelCapacity>
 			</li>

@@ -25,8 +25,8 @@
 		<techLevel>Industrial</techLevel>
 		<vehicleType>Land</vehicleType>
 		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
-		<nameable>false</nameable>
-		<soundOneShotsOnEvent Inherit = "False">
+		<nameable>true</nameable>
+		<!--<soundOneShotsOnEvent Inherit = "False">
 			<li>
 				<key>PawnEntered</key>
 				<value>VVE_VehicleEnter</value>
@@ -49,12 +49,12 @@
 				<key>(IgnitionOn, IgnitionOff)</key>
 				<value>VVE_VehicleEngineHeavy</value>
 			</li>
-		</soundSustainersOnEvent>
+		</soundSustainersOnEvent>-->
 		<statBases>
 			<ArmorRating_Heat>1.0</ArmorRating_Heat>
 		</statBases>
 		<properties>
-			<diagonalRotation>false</diagonalRotation>
+			<diagonalRotation>true</diagonalRotation>
 		</properties>
 	</Vehicles.VehicleDef>
 

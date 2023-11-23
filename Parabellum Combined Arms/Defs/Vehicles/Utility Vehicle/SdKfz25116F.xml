@@ -11,7 +11,7 @@
 		</graphicData>	
 		<statBases> 		
 			<MaxHitPoints>120</MaxHitPoints>
-			<WorkToBuild>14000</WorkToBuild>
+			<WorkToBuild>15200</WorkToBuild>
 			<Flammability>0.15</Flammability>
 		</statBases>
 		<size>(2,4)</size><!-- Vk 16.02 Leopard(3.1m w, 4.74m hl) vs Sd.Kfz 251(2.1m w, 5.8m hl)-->
@@ -61,7 +61,7 @@
 		<properties>	<!-- slot/crew -->
 			<customRoadCosts AssignDefaults = "0.3"/>
 			<worldSpeedMultiplier>1.74</worldSpeedMultiplier>
-			<winterSpeedMultiplier>1.2</winterSpeedMultiplier>
+			<winterSpeedMultiplier>0.8</winterSpeedMultiplier>
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 4)</li>
 			</vehicleJobLimitations>
@@ -526,7 +526,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>14</fuelConsumptionRate>
+				<fuelConsumptionRate>312</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.45</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>180</fuelCapacity>
 			</li>

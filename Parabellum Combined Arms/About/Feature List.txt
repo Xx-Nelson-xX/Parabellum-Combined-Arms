@@ -1,9 +1,21 @@
-<--------------------------------------- 1.0a(initial stage) -------------------------------------------->
+<--------------------------------------- Utility Vehicle -------------------------------------------->
 
-	>Due no support for raider vehicles yet, so the initial stage will be mostly experimenting VF and utility vehicles with little to none offensive capability
+<----- Motorcycle ----->
+Zundapp KS 750 w sidecar:
 
-1.0a - Initial stage: 1 New vehicles and tweaks
+	Specification:	 Motorcycle(w sidecar) / Size - 1x2 / Mass - 420kg 
 
+	Armament:		 MG34(100rnd) - 7.92x57mm Mauser, Automatic(1/6/15)
+	
+	Mobility:		 25c/s - 95km/h or 59mph IRL
+	
+	Carry Capacity:	 160kg
+	
+	Crew:			 (3) 1 driver, 1 sidecar gunner and 1 passenger
+	
+	Fuel:			 12 L total / 72 L per day consumption(3L per hour)
+
+<----- Car/4x4 ----->
 Volkswagen Type 166 Schwimmwagen:
 
 	Specification:	 Amphibious Car(Boat on wheels) / Size - 2x2 / Mass - 910kg 
@@ -18,30 +30,8 @@ Volkswagen Type 166 Schwimmwagen:
 	
 	Fuel:			 50 L total / 120 L per day consumption(5L per hour)
 	
-Tweaks:
--Increased fuel consumption for vehicles
-*Enabled vehicle rename
-*Reverted diagonal direction
-*Disabled hidden vehicle(VK 16.02)
-*Disabled suspected VVF features
+<----- Half-Tracked ----->
 
-
-1.0 - Initial stage: 4 New vehicles and 1 hidden
-
-Zundapp KS 750 w sidecar:
-
-	Specification:	 Motorcycle(w sidecar) / Size - 1x2 / Mass - 420kg 
-
-	Armament:		 MG34(100rnd) - 7.92x57mm Mauser, Automatic(1/6/15)
-	
-	Mobility:		 25c/s - 95km/h or 59mph IRL
-	
-	Carry Capacity:	 160kg
-	
-	Crew:			 (3) 1 driver, 1 sidecar gunner and 1 passenger
-	
-	Fuel:			 12 L total / 72 L per day consumption(3L per hour)
-	
 Sd.Kfz.4(Maultier):
 
 	Specification:	 Half-tracked Truck / Size - 2x4 / Mass - 6200kg 
@@ -91,9 +81,7 @@ Sd.Kfz.251/16(Flammpanzerwagen):
 	
 	Armor:			 13 / 13 / 13
 	
-	
-	
-<----- Hidden(Not available for public) ----->
+<----- Light Tank ----->
 
 VK 16.02(Leopard-50mm):
 
@@ -110,5 +98,3 @@ VK 16.02(Leopard-50mm):
 	Fuel:			 180 L total / 360 L per day consumption(15L per hour)
 	
 	Armor:			 65.27(50mm angled) / 33.38(30mm angled)	/ 36.17(30mm angled)
-
-	

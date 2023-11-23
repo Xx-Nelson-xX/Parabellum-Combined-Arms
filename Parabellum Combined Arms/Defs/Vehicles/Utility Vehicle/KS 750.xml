@@ -10,8 +10,8 @@
 			<drawSize>(2,2)</drawSize>
 		</graphicData>	
 		<statBases> 		
-			<MaxHitPoints>95</MaxHitPoints>
-			<WorkToBuild>10000</WorkToBuild>
+			<MaxHitPoints>55</MaxHitPoints>
+			<WorkToBuild>6800</WorkToBuild>
 			<Flammability>0.1</Flammability>
 		</statBases>
 		<size>(1,2)</size><!-- Vk 16.02 Leopard(3.1m w, 4.74m hl) vs KS750(0.75m w, 2m hl)-->
@@ -49,7 +49,7 @@
 		</statBases>
 		<vehicleStats>
 			<Mass>420</Mass>
-			<MoveSpeed>25</MoveSpeed><!-- 95km/h or 50mph-->
+			<MoveSpeed>25</MoveSpeed><!-- 95km/h or 59mph-->
 			<CargoCapacity>160</CargoCapacity>
 			<RepairRate>1.05</RepairRate>
 		</vehicleStats>
@@ -60,7 +60,7 @@
 			<customRoadCosts AssignDefaults = "0.2"/>
 			<manhunterTargetsVehicle>true</manhunterTargetsVehicle>
 			<worldSpeedMultiplier>2.7</worldSpeedMultiplier>
-			<winterSpeedMultiplier>1.2</winterSpeedMultiplier>
+			<winterSpeedMultiplier>0.8</winterSpeedMultiplier>
 			<offRoadMultiplier>0.85</offRoadMultiplier>
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 3)</li>
@@ -142,8 +142,8 @@
 				<depth>External</depth>
 				<hitWeight>4</hitWeight>
 				<armor>
-					<ArmorRating_Blunt>4</ArmorRating_Blunt>
-					<ArmorRating_Sharp>50</ArmorRating_Sharp>
+					<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					<ArmorRating_Blunt>50</ArmorRating_Blunt>
 				</armor>
 				<tags>
 					<li>Wheel</li>
@@ -162,8 +162,8 @@
 				<depth>External</depth>
 				<hitWeight>4</hitWeight>
 				<armor>
-					<ArmorRating_Blunt>4</ArmorRating_Blunt>
-					<ArmorRating_Sharp>50</ArmorRating_Sharp>
+					<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					<ArmorRating_Blunt>50</ArmorRating_Blunt>
 				</armor>
 				<tags>
 					<li>Wheel</li>
@@ -241,7 +241,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>3</fuelConsumptionRate>
+				<fuelConsumptionRate>72</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.2</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>12</fuelCapacity>
 			</li>

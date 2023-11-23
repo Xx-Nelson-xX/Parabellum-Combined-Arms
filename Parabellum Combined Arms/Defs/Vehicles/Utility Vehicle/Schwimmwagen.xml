@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <Vehicles.VehicleBuildDef ParentName="PaCA_BaseVehicleBuild"><!--Base Blueprint-->
+		<defName>PaCA_Schwimmwagen_Blueprint</defName>
+		<label>Schwimmwagen</label>
+		<description>Blueprint of Volkswagen Type 166 Schwimmwagen</description>
+		<graphicData>
+			<texPath>Vehicles/Utility Vehicles/Schwimmwagen/Schwimmwagen</texPath>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>	
+		<statBases> 		
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToBuild>8400</WorkToBuild>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<size>(2,2)</size><!-- Vk 16.02 Leopard(3.1m w, 4.74m hl) vs KS750(1.48m w, 3.825m hl)-->
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<costList>
+			<Plasteel>500</Plasteel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<Mechanism>5</Mechanism>
+			<Rubber>20</Rubber>
+		</costList>
+		<thingToSpawn>PaCA_Schwimmwagen_H</thingToSpawn>
+		<researchPrerequisites>
+			<li>Parabellum_Gamma</li>
+		</researchPrerequisites>
+	</Vehicles.VehicleBuildDef>
+
+	<!-- main -->
+	<Vehicles.VehicleDef ParentName="PaCA_BaseVehicle">
+		<defName>PaCA_Schwimmwagen_H</defName>
+		<label>Schwimmwagen</label>
+		<description>Volkswagen Type 166 Schwimmwagen, an old world military amphibious car, pretty much a boat on wheels with 4x4 car mobility.</description>
+		<buildDef>PaCA_Schwimmwagen_Blueprint</buildDef>
+		<graphicData>
+			<texPath>Vehicles/Utility Vehicles/Schwimmwagen/Schwimmwagen</texPath>
+			<drawSize>(3.2,3.2)</drawSize>
+		</graphicData>
+		<size>(2,2)</size>
+		<fillPercent>0.85</fillPercent>
+		<vehicleCategory>Transport</vehicleCategory>
+		<vehicleType>Sea</vehicleType>
+		<statBases>
+			<ArmorRating_Blunt>120</ArmorRating_Blunt>
+			<ArmorRating_Sharp>5</ArmorRating_Sharp>
+			<Flammability>0.2</Flammability>
+			<MarketValue>3400</MarketValue>
+		</statBases>
+		<vehicleStats>
+			<Mass>910</Mass>
+			<MoveSpeed>21</MoveSpeed><!-- 80km/h or 50mph on water-->
+			<CargoCapacity>340</CargoCapacity>
+			<RepairRate>1.05</RepairRate>
+		</vehicleStats>
+		<race>
+			<baseBodySize>1.6</baseBodySize>
+		</race>	
+		<properties>	<!-- slot/crew -->
+			<customRoadCosts AssignDefaults = "0.24"/>
+			<manhunterTargetsVehicle>true</manhunterTargetsVehicle>
+			<worldSpeedMultiplier>2.3</worldSpeedMultiplier>
+			<winterSpeedMultiplier>0.72</winterSpeedMultiplier>
+			<offRoadMultiplier>0.9</offRoadMultiplier>
+			<defaultBiomesImpassable>false</defaultBiomesImpassable>
+			<defaultTerrainImpassable>false</defaultTerrainImpassable>
+			<customTerrainCosts><!-- 12km/h or 7mph on Water-->
+				<li>
+					<key>WaterOceanDeep</key>
+					<value>60</value>
+				</li>
+				<li>
+					<key>WaterDeep</key>
+					<value>50</value>
+				</li>
+				<li>
+					<key>WaterMovingChestDeep</key>
+					<value>40</value>
+				</li>
+				<li>
+					<key>WaterOceanShallow</key>
+					<value>20</value>
+				</li>
+				<li>
+					<key>WaterShallow</key>
+					<value>10</value>
+				</li>
+				<li>
+					<key>WaterMovingShallow</key>
+					<value>30</value>
+				</li>
+				<li>
+					<key>Marsh</key>
+					<value>60</value>
+				</li>
+			</customTerrainCosts>
+			<track Class = "Vehicles.VehicleTrack_Wake">
+				<speed>1</speed>
+			</track>
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 3)</li>
+			</vehicleJobLimitations>
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>driver</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>				
+					<handlingTypes>
+						<li>Movement</li>
+					</handlingTypes>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>1</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>2</layerSouth>
+						<drawOffsetNorth>(-0.4,0,0.8)</drawOffsetNorth>
+						<drawOffsetSouth>(0.3,0,0.6)</drawOffsetSouth>
+						<drawOffsetEast>(0.15,0,0.6)</drawOffsetEast>
+						<drawOffsetWest>(-0.15,0,0.3)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passengerFront</key>
+					<label>passenger(F)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(1, 1)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>1</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>2</layerSouth>
+						<drawOffsetNorth>(0.4,0,0.8)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.3,0,0.6)</drawOffsetSouth>
+						<drawOffsetEast>(0.15,0,0.3)</drawOffsetEast>
+						<drawOffsetWest>(-0.15,0,0.6)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passengerRearR</key>
+					<label>passenger(RR)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(1, 0)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>2</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>2</layerEast>
+						<layerWest>0</layerWest>
+						<drawOffsetNorth>(0.4,0,0.65)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.42,0,1.16)</drawOffsetSouth>
+						<drawOffsetEast>(-0.35,0,0.3)</drawOffsetEast>
+						<drawOffsetWest>(0.35,0,0.6)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>passengerRearL</key>
+					<label>passenger(RL)</label>
+					<slots>1</slots>
+					<exposed>true</exposed>
+					<hitbox>
+						<cells>
+							<li>(0, 0)</li>
+						</cells>
+					</hitbox>
+					<pawnRenderer>
+						<layer>2</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>1</layerSouth>
+						<layerEast>0</layerEast>
+						<layerWest>2</layerWest>
+						<drawOffsetNorth>(-0.4,0,0.65)</drawOffsetNorth>
+						<drawOffsetSouth>(0.42,0,1.16)</drawOffsetSouth>
+						<drawOffsetEast>(-0.35,0,0.6)</drawOffsetEast>
+						<drawOffsetWest>(0.35,0,0.3)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>gunner</key>
+					<label>rear seat gunner</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<handlingTypes>Turret</handlingTypes>
+					<turretIds>
+						<li>mainTurret</li>
+					</turretIds>
+					<exposed>true</exposed>
+					<hitbox>
+						<side>Body</side>
+					</hitbox>
+					<pawnRenderer>
+						<layer>0</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>2</layerSouth>
+						<layerEast>2</layerEast>
+						<layerWest>2</layerWest>
+						<drawOffsetNorth>(0,0,0.68)</drawOffsetNorth>
+						<drawOffsetSouth>(0,0,0.9)</drawOffsetSouth>
+						<drawOffsetEast>(-0.32,0,0.52)</drawOffsetEast>
+						<drawOffsetWest>(0.32,0,0.52)</drawOffsetWest>
+					</pawnRenderer>
+				</li>
+			</roles>
+		</properties>	
+		<components> 
+		<!-- External Parts -->
+			<li>
+				<key>leftFrontWheel</key>
+				<label>Front Wheel(L)</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					<ArmorRating_Blunt>50</ArmorRating_Blunt>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(0, 1)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightFrontWheel</key>
+				<label>Front Wheel(R)</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					<ArmorRating_Blunt>50</ArmorRating_Blunt>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>LeftRearWheel</key>
+				<label>Rear Wheel(L)</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					<ArmorRating_Blunt>50</ArmorRating_Blunt>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightRearWheel</key>
+				<label>Rear Wheel(R)</label>
+				<health>20</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<armor>
+					<ArmorRating_Sharp>4</ArmorRating_Sharp>
+					<ArmorRating_Blunt>50</ArmorRating_Blunt>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(1, 0)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li><!-- LeftFrontSuspension -->
+				<key>LeftFrontSuspension</key>
+				<label>left front Suspension</label>
+				<health>30</health>
+				<depth>Internal</depth>			
+				<hitbox>
+					<cells>
+						<li>(0, 1)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- RightFrontSuspension -->
+				<key>RightFrontSuspension</key>
+				<label>right front suspension</label>
+				<health>30</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- LeftRearSuspension -->
+				<key>LeftRearSuspension</key>
+				<label>left rear suspension</label>
+				<health>30</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- RightRearSuspension -->
+				<key>RightRearSuspension</key>
+				<label>right rear suspension</label>
+				<health>30</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(1, 0)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<!-- External Shell Parts -->
+			<li><!-- EngineHood -->
+				<key>EngineHood</key>
+				<label>engine hood</label>
+				<health>30</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+			</li>
+			<li><!-- BackupTire -->
+				<key>BackupTire</key>
+				<label>backup tyre</label>
+				<health>30</health>
+				<depth>External</depth>
+				<hitWeight>4</hitWeight>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li><!-- FrontBumper -->
+				<key>FrontBumper</key>
+				<label>front bumper</label>
+				<health>40</health>
+				<depth>External</depth>
+				<hitWeight>5</hitWeight>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+			</li>
+			<li><!-- RearBumper -->
+				<key>RearBumper</key>
+				<label>rear bumper</label>
+				<health>40</health>
+				<depth>External</depth>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<!-- Internal Shell Part -->
+			<li><!-- Interior -->
+				<key>Interior</key>
+				<label>interior</label>
+				<health>30</health>
+				<depth>Internal</depth>
+			</li>
+			<li><!-- Dashboard -->
+				<key>Dashboard</key>
+				<label>dashboard</label>
+				<health>30</health>
+				<depth>Internal</depth>
+			</li>
+			<li><!-- SteeringWheel -->
+				<key>SteeringWheel</key>
+				<label>steering wheel</label>
+				<health>20</health>
+				<depth>Internal</depth>
+			</li>
+			<!-- Internal Parts -->
+			<li><!-- Engine -->
+				<key>Engine</key>
+				<label>4-cyl. boxer engine</label>
+				<health>30</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				<hitWeight>3</hitWeight>
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.85</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+				<hitbox>
+					<side>Front</side>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li><!-- Gearbox -->
+				<key>Gearbox</key>
+				<label>gear box</label>
+				<health>25</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li><!-- fuel tank -->
+				<key>FuelTank</key>
+				<label>fuel tank</label>
+				<health>15</health>
+				<depth>Internal</depth>			
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>2</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>			
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
+				<fuelType>Chemfuel</fuelType>
+				<leakDef>Filth_Fuel</leakDef>
+				<fuelConsumptionRate>120</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>0.4</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>50</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">	<!-- turret -->
+				<turrets>
+					<li>
+						<turretDef>PaCA_CMG34V</turretDef>					
+						<renderProperties>
+							<north>(0, 0.35)</north>
+							<south>(0, 0.35)</south>
+							<east>(0, 0.32)</east>
+							<west>(0, 0.32)</west>
+						</renderProperties>
+						<gizmoLabel>Main Turret</gizmoLabel>
+						<angleRestricted>(270,90)</angleRestricted>
+						<aimPieOffset>(0, -0.4)</aimPieOffset>	<!-- coldown/warmup cone -->
+						<drawLayer>4</drawLayer>					
+						<key>mainTurret</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+
+</Defs>

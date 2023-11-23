@@ -33,6 +33,7 @@
 		<description>Usually military convertion of civillian car, or viceversa.</description>
 		<defNames>
 			<li>PaCA_ZKS750_Blueprint</li>
+			<li>PaCA_Schwimmwagen_H</li>
 		</defNames>
 		<designationCategory>VF_Vehicles</designationCategory>
 		<debug>false</debug>

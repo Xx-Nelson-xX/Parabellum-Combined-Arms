@@ -60,7 +60,7 @@
 		<properties>	<!-- slot/crew -->
 			<customRoadCosts AssignDefaults = "0.3"/>
 			<worldSpeedMultiplier>1.74</worldSpeedMultiplier>
-			<winterSpeedMultiplier>1.2</winterSpeedMultiplier>
+			<winterSpeedMultiplier>0.8</winterSpeedMultiplier>
 			<vehicleJobLimitations>
 				<li>(RepairVehicle, 5)</li>
 			</vehicleJobLimitations>
@@ -450,7 +450,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>10</fuelConsumptionRate>
+				<fuelConsumptionRate>288</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.4</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>120</fuelCapacity>
 			</li>
