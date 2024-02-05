@@ -1,0 +1,9 @@
+<--------------------------------------- 1.0b(initial stage) -------------------------------------------->
+
+	>Due no support for raider vehicles yet, so the initial stage will be mostly experimenting VF and utility vehicles with little to none offensive capability
+
+	
+Tweaks:
++Reduced the fuel consumpotion to mostly, half of the previous value, in practice the previous value is very harsh for caravan...
+*rebalance Armor for Utility Vehicles, in theory, Shotgun Slug and Full size Rifle ammo should damage cars and bikes
+	

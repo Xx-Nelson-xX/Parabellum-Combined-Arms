@@ -14,7 +14,7 @@ Volkswagen Type 166 Schwimmwagen:
 	
 	Carry Capacity:	 340kg
 	
-	Crew:			 (3) 1 driver, 1 sidecar gunner and 1 passenger
+	Crew:			 (5) 1 driver, 1 rear gunner and 3 passenger
 	
 	Fuel:			 50 L total / 120 L per day consumption(5L per hour)
 	
@@ -24,6 +24,8 @@ Tweaks:
 *Reverted diagonal direction
 *Disabled hidden vehicle(VK 16.02)
 *Disabled suspected VVF features
+*Readjusted speed of vehicle in winter
+*Readjusted KS 750 stats
 
 
 1.0 - Initial stage: 4 New vehicles and 1 hidden

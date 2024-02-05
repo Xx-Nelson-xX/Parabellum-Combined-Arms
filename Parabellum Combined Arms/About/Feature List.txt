@@ -1,6 +1,7 @@
 <--------------------------------------- Utility Vehicle -------------------------------------------->
 
 <----- Motorcycle ----->
+
 Zundapp KS 750 w sidecar:
 
 	Specification:	 Motorcycle(w sidecar) / Size - 1x2 / Mass - 420kg 
@@ -13,9 +14,11 @@ Zundapp KS 750 w sidecar:
 	
 	Crew:			 (3) 1 driver, 1 sidecar gunner and 1 passenger
 	
-	Fuel:			 12 L total / 72 L per day consumption(3L per hour)
+	Fuel:			 12 L total / 48 L per day consumption(2L per hour)
+
 
 <----- Car/4x4 ----->
+
 Volkswagen Type 166 Schwimmwagen:
 
 	Specification:	 Amphibious Car(Boat on wheels) / Size - 2x2 / Mass - 910kg 
@@ -26,9 +29,10 @@ Volkswagen Type 166 Schwimmwagen:
 	
 	Carry Capacity:	 340kg
 	
-	Crew:			 (3) 1 driver, 1 sidecar gunner and 1 passenger
+	Crew:			 (5) 1 driver, 1 rear gunner and 3 passenger
 	
-	Fuel:			 50 L total / 120 L per day consumption(5L per hour)
+	Fuel:			 50 L total / 72 L per day consumption(3L per hour)
+	
 	
 <----- Half-Tracked ----->
 
@@ -44,7 +48,7 @@ Sd.Kfz.4(Maultier):
 	
 	Crew:			 (12) 1 driver and 11 passenger
 	
-	Fuel:			 100 L total / 240 L per day consumption(10 per hour)
+	Fuel:			 100 L total / 120 L per day consumption(5 per hour)
 	
 	Armor:			 10 / 10 / 10
 	
@@ -61,7 +65,7 @@ Sd.Kfz.251(Hanomags):
 	
 	Crew:			 (10) 1 driver, 2 gunner and 7 passenger
 	
-	Fuel:			 120 L total / 288 L per day consumption(12L per hour)
+	Fuel:			 120 L total / 144 L per day consumption(6L per hour)
 	
 	Armor:			 13 / 13 / 13
 	
@@ -77,9 +81,10 @@ Sd.Kfz.251/16(Flammpanzerwagen):
 	
 	Crew:			 (8) 1 driver, 4 gunner and 3 passenger
 	
-	Fuel:			 180 L total / 312 L per day consumption(13L per hour)
+	Fuel:			 180 L total / 168 L per day consumption(7L per hour)
 	
 	Armor:			 13 / 13 / 13
+	
 	
 <----- Light Tank ----->
 
@@ -95,6 +100,6 @@ VK 16.02(Leopard-50mm):
 	
 	Crew:			 (8) 1 driver, 2 gunner, 1 passenger(inside) and 2 passenger(outside)
 	
-	Fuel:			 180 L total / 360 L per day consumption(15L per hour)
+	Fuel:			 180 L total / 192 L per day consumption(8L per hour)
 	
 	Armor:			 65.27(50mm angled) / 33.38(30mm angled)	/ 36.17(30mm angled)

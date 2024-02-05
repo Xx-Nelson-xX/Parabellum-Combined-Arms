@@ -490,7 +490,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- 油箱與油耗 -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>360</fuelConsumptionRate>
+				<fuelConsumptionRate>192</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.6</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>220</fuelCapacity>
 			</li>

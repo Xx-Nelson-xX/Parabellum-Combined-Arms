@@ -45,7 +45,7 @@
 		<vehicleCategory>Combat</vehicleCategory>
 		<statBases>
 			<ArmorRating_Blunt>110</ArmorRating_Blunt>
-			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<ArmorRating_Sharp>11</ArmorRating_Sharp>
 			<Flammability>0</Flammability>
 			<MarketValue>7200</MarketValue>
 		</statBases>
@@ -526,7 +526,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>312</fuelConsumptionRate>
+				<fuelConsumptionRate>168</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.45</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>180</fuelCapacity>
 			</li>
@@ -638,7 +638,7 @@
 		<warmUpTimer>1.6</warmUpTimer>
 		<shotSound>HissFlamethrower</shotSound>
 		<reloadSound>Interact_Rifle</reloadSound>
-		<projectile>Bullet_Flamethrower_Chemfuel</projectile>
+		<projectile>Bullet_Flamethrower_Napalm</projectile>
 		<projectileOffset>0.8</projectileOffset>
 		<projectileShifting>
 			<li>0</li>

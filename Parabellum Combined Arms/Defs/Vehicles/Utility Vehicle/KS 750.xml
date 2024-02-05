@@ -42,7 +42,7 @@
 		<fillPercent>0.65</fillPercent>
 		<vehicleCategory>Transport</vehicleCategory>
 		<statBases>
-			<ArmorRating_Blunt>110</ArmorRating_Blunt>
+			<ArmorRating_Blunt>62</ArmorRating_Blunt>
 			<ArmorRating_Sharp>4</ArmorRating_Sharp>
 			<Flammability>0.2</Flammability>
 			<MarketValue>2200</MarketValue>
@@ -241,7 +241,7 @@
 			<li Class="Vehicles.CompProperties_FueledTravel">	<!-- vehicle fuel tank -->
 				<fuelType>Chemfuel</fuelType>
 				<leakDef>Filth_Fuel</leakDef>
-				<fuelConsumptionRate>72</fuelConsumptionRate>
+				<fuelConsumptionRate>48</fuelConsumptionRate>
 				<fuelConsumptionWorldMultiplier>0.2</fuelConsumptionWorldMultiplier>
 				<fuelCapacity>12</fuelCapacity>
 			</li>
